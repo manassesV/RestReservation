@@ -1,0 +1,33 @@
+@model Restaurant
+
+<h2>Editing reservation for @Model.name</h2>
+<hr/>
+
+
+<form method="post" asp-controller="Restaurant"
+asp-action="Edit">
+   <div asp-validation-summary="ModelOnly"
+   class="text-danger"></div>
+   <input type="hidden" asp-for="Id"/>
+
+    <div class="mb-3">
+        <label asp-for="@Model.name" class="form-label"></label>
+        <input asp-for="@Model.name" class="form-control" />
+        <span asp-validation-for="@Model.name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.cuisine" class="form-label"></label>
+        <input asp-for="@Model.cuisine" class="form-control" />
+        <span asp-validation-for="@Model.cuisine" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.borough" class="form-label"></label>
+        <input asp-for="@Model.borough" class="form-control" />
+        <span asp-validation-for="@Model.borough" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Update restaurant" class="btn btn-primary">
+</form>
+
+<div>
+   <a asp-controller="Restaurant" asp-action="Index"> Back to Restaurants</a>
+</div>

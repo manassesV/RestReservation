@@ -1,0 +1,31 @@
+@model RestaurantAddViewModel
+
+@if(ViewData["ErrorMessage"] != null){
+    <p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+
+
+<form method="post" asp-asp-controller="Restaurant"
+asp-action="Add">
+   <div asp-validation-summary="All" class="text-danger"></div>
+   <div class="mb-3">
+       <label asp-for="Restaurants.name" class="form-label"></label>
+        <input asp-for="Restaurants.name" class="form-control"/>
+        <span asp-validation-for="Restaurants.name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Restaurants.cuisine" class="form-label"></label>
+        <input asp-for="Restaurants.cuisine" class="form-control" />
+        <span asp-validation-for="Restaurants.cuisine" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Restaurants.borough" class="form-label"></label>
+        <input asp-for="Restaurants.borough" class="form-control" />
+        <span asp-validation-for="Restaurants.borough" class="text-danger"></span>
+    </div>
+<input type="submit" value="Add restaurant" class="btn btn-primary">
+</form>
+
+<p>
+    <a asp-controller="Restaurant" asp-action="Index">back to list</a>
+</p>

@@ -1,0 +1,27 @@
+@model Reservation
+
+<h2>Editing reservation for @Model.RestaurantName
+    on @Model.date.ToLocalTime()</h2>
+<hr/>
+
+
+<form method="post" asp-controller="Reservation"
+asp-action="Edit">
+   <div asp-validation-summary="ModelOnly"
+   class="text-danger"></div>
+   <input type="hidden" asp-for="Id"/>
+
+
+   <div class="mb-3">
+     <label asp-for="date" class="form-label"></label>
+      <input asp-for="@Model.date" type="datetime-local" class="form-control"
+       value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"/>
+      <span asp-validation-for="date" class="text-danger"/>
+   </div>
+       <input type="submit" value="Update reservation" 
+       class="btn btn-danger" />
+</form>
+
+<div>
+   <a asp-controller="Reservation" asp-action="Index"> Back to reservations</a>
+</div>
